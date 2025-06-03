@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url('background.png') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+}
+
+/* Optional: dark overlay to improve readability over background image */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+nav {
+  background: black;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px;
+}
+
+nav a:hover,
+nav a.active {
+  border-bottom: 2px solid orange;
+}
+
+.section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.project-gallery {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.project-img {
+  width: 500px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-img:hover {
+  transform: scale(1.05);
+}
