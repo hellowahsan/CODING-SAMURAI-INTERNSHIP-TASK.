@@ -1,18 +1,19 @@
-const navLinks = document.querySelectorAll("nav a");
+document.getElementById("signupForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-window.addEventListener("scroll", () => {
-  const fromTop = window.scrollY;
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const formMsg = document.getElementById("formMsg");
 
-  navLinks.forEach(link => {
-    const section = document.querySelector(link.getAttribute("href"));
-
-    if (
-      section.offsetTop <= fromTop + 60 &&
-      section.offsetTop + section.offsetHeight > fromTop + 60
-    ) {
-      navLinks.forEach(l => l.classList.remove("active"));
-      link.classList.add("active");
-    }
-  });
+  if (!name || !email) {
+    formMsg.textContent = "Please fill in all fields!";
+    formMsg.style.color = "red";
+  } else if (!email.includes("@")) {
+    formMsg.textContent = "Enter a valid email!";
+    formMsg.style.color = "red";
+  } else {
+    formMsg.textContent = `Thanks, ${name}! You’ve been signed up!`;
+    formMsg.style.color = "green";
+    document.getElementById("signupForm").reset();
+  }
 });
-
